@@ -27,6 +27,6 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   FraudioReleaseStateTransformations.setFraudioNextVersion,
-  commitNextVersion
-  //pushChanges
+  commitNextVersion,
+  pushChanges
 )
