@@ -19,6 +19,7 @@ releaseProcess := Seq[ReleaseStep](
   inquireVersions,
   runTest,
   setReleaseVersion,
+  releaseStepCommand("package"),
   commitReleaseVersion,
   tagRelease,
   setNextVersion,
