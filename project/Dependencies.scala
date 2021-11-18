@@ -1,30 +1,18 @@
+import sbt.Keys._
 import sbt._
 import sbtrelease.ReleasePlugin._
-import sbtrelease.ReleasePlugin
+import sbtrelease.ReleasePlugin.autoImport.ReleaseKeys._
+import sbtrelease.ReleasePlugin.autoImport._
 
 object Dependencies {
   lazy val scalaTest = "org.scalatest" %% "scalatest" % "3.2.9"
 }
 
-object FraudioReleasePlugin extends AutoPlugin {
-
-  object autoImport {}
-
-  override def requires: Plugins = ReleasePlugin
-}
-
-import sbt._
-import sbt.Keys._
-import sbt.Package.ManifestAttributes
-import annotation.tailrec
-import ReleasePlugin.autoImport._
-import ReleaseKeys._
-
-import sys.process.ProcessLogger
 
 object FraudioReleaseStateTransformations {
-  import sbtrelease.Utilities._
+
   import sbtrelease.ReleaseStateTransformations.reapply
+  import sbtrelease.Utilities._
 
   type Versions = (String, String)
 
@@ -37,8 +25,8 @@ object FraudioReleaseStateTransformations {
   )
 
   private def setFraudioVersion(
-      selectVersion: Versions => String
-  ): ReleaseStep = { st: State =>
+                                 selectVersion: Versions => String
+                               ): ReleaseStep = { st: State =>
     val vs = st
       .get(versions)
       .getOrElse(

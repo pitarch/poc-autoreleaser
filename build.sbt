@@ -1,5 +1,5 @@
 import Dependencies._
-import ReleaseTransformations._
+import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 
 ThisBuild / scalaVersion := "2.13.7"
@@ -16,7 +16,6 @@ lazy val root = (project in file("."))
     releaseVersionFile := file(baseDirectory.value.getPath + "/VERSION"),
     libraryDependencies += scalaTest % Test
   )
-  .enablePlugins(FraudioReleasePlugin)
 
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.
 
@@ -28,6 +27,6 @@ releaseProcess := Seq[ReleaseStep](
   commitReleaseVersion,
   tagRelease,
   FraudioReleaseStateTransformations.setFraudioNextVersion,
-  commitNextVersion,
+  commitNextVersion
   //pushChanges
 )
