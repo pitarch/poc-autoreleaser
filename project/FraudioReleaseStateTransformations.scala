@@ -2,7 +2,11 @@ import sbt.Keys.version
 import sbt.{IO, State, ThisBuild}
 import sbtrelease.ReleasePlugin.autoImport
 import sbtrelease.ReleasePlugin.autoImport.ReleaseKeys.versions
-import sbtrelease.ReleasePlugin.autoImport.{ReleaseStep, releaseUseGlobalVersion, releaseVersionFile}
+import sbtrelease.ReleasePlugin.autoImport.{
+  ReleaseStep,
+  releaseUseGlobalVersion,
+  releaseVersionFile
+}
 
 object FraudioReleaseStateTransformations {
 
@@ -20,8 +24,8 @@ object FraudioReleaseStateTransformations {
   )
 
   private def setFraudioVersion(
-                                 selectVersion: Versions => String
-                               ): ReleaseStep = { st: State =>
+      selectVersion: Versions => String
+  ): ReleaseStep = { st: State =>
     val vs = st
       .get(versions)
       .getOrElse(
@@ -46,7 +50,7 @@ object FraudioReleaseStateTransformations {
 
   private def writeFraudioVersion(st: State, versionString: String): Unit = {
     val file = st.extract.get(releaseVersionFile)
-    st.log.info("Writing new version '%s'." format versionString)
+    st.log.info(s"Writing new version ${versionString}. to file ${file}")
     IO.writeLines(file, Seq(versionString))
   }
 }
