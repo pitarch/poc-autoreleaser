@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-GIT=`which git` || echo "git not found" && exit 1
-SBT=`which sbt` || echo "sbt not found" && exit 1
-
-$SBT "release with-defaults"
-$GIT checkout staging
-$GIT merge production
-$GIT push
+sbt "release with-defaults"
+git checkout staging
+git merge production
+git push
