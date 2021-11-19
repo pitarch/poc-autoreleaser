@@ -1,6 +1,6 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.13.7"
+ThisBuild / scalaVersion := "2.12.13"
 ThisBuild / organization := "com.fraudio"
 ThisBuild / organizationName := "Fraudio"
 ThisBuild / version := IO
