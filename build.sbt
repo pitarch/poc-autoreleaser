@@ -1,6 +1,6 @@
 import Dependencies._
 
-ThisBuild / scalaVersion := "2.12.13"
+ThisBuild / scalaVersion := "2.13.7"
 ThisBuild / organization := "com.fraudio"
 ThisBuild / organizationName := "Fraudio"
 ThisBuild / version := IO
@@ -12,4 +12,3 @@ lazy val root = (project in file("."))
     name := "poc-autorelease",
     libraryDependencies += scalaTest % Test
   )
-g
