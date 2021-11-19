@@ -12,3 +12,4 @@ lazy val root = (project in file("."))
     name := "poc-autorelease",
     libraryDependencies += scalaTest % Test
   )
+g
