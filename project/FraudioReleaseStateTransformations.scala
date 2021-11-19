@@ -50,7 +50,7 @@ object FraudioReleaseStateTransformations {
 
   private def writeFraudioVersion(st: State, versionString: String): Unit = {
     val file = st.extract.get(releaseVersionFile)
-    st.log.info(s"Writing new version ${versionString}. to file ${file}")
+    st.log.info(s"Writing new version ${versionString} to file ${file}")
     IO.writeLines(file, Seq(versionString))
   }
 }

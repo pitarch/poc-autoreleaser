@@ -1,6 +1,14 @@
-import sbtrelease.ReleaseStateTransformations.{checkSnapshotDependencies, commitNextVersion, commitReleaseVersion, inquireVersions, pushChanges, runClean, tagRelease}
+import sbtrelease.ReleaseStateTransformations.{
+  checkSnapshotDependencies,
+  commitNextVersion,
+  commitReleaseVersion,
+  inquireVersions,
+  pushChanges,
+  runClean,
+  tagRelease
+}
 
-ThisBuild / releaseVersionFile := file(baseDirectory.value.getPath + "/VERSION")
+releaseVersionFile := file(baseDirectory.value.getPath + "/VERSION")
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
